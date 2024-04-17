@@ -56,8 +56,7 @@ def tiff2nc(path,set):
     time_data=pd.date_range('2021-07-23 00:00:00','2021-07-28 00:00:00',freq="D")
     # inp=np.ones([time_data.shape[0],im_data.shape[0],im_data.shape[1]],dtype='float32')*5
     inp=set[0:len(time_data)]
-    for i in range(len(inp)):
-        inp[i][ul==80]=0.5*inp[i][ul==80]
+    
     ds = xr.Dataset({
         'x': (['x'], im_lon, lon_attr),
         'y': (['y'], im_lat, lat_attr),
